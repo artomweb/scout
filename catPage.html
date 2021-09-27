@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAT</title>
+</head>
+
+<body>
+    <div id="catImage"></div>
+    <h1 class="center">This is not scouts.or.uk</h1>
+
+    <div class="link">
+        <a href="https://rppi.artomweb.com/scout" class="center">BACK</a>
+    </div>
+</body>
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* width: 50%; */
+        text-align: center;
+    }
+</style>
+
+<script>
+    let catImage = document.getElementById("catImage");
+    var img = document.createElement("img");
+
+    let src;
+
+    // Math.random() > 0.5 ? (src = "https://cataas.com/cat/gif?") : (src = "http://thecatapi.com/api/images/get?format=src&type=gif");
+
+    src = "https://cataas.com/cat/gif?";
+
+    img.src = src + Date.now();
+
+    img.onError = function(err) {
+        console.log(err);
+    };
+
+    img.classList.add("center");
+
+    catImage.appendChild(img);
+</script>
+
+</html>

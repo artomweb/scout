@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCOUT</title>
+</head>
+
+<body style="overflow: hidden; margin: 5px">
+    <!-- <textarea id="textArea" style="width: 97%; border: 3px solid red; font-size: 20pt; display: block; margin-left: auto; margin-right: auto" rows="5"></textarea>
+    <button type="button" id="updateButton">UPDATE</button>
+    <div style="display: flex; justify-content: center; align-items: center; margin: 3% auto">
+        <div id="displayText" style="font-size: 30pt; text-align: center"></div>
+    </div>
+
+    <hr style="border-top: 3px solid blue" /> -->
+
+    <div style="text-align: center" id="link section">
+        <h2>Which link takes you to scouts.or.uk?</h2>
+
+        <div class="link">
+            <a href="https://rppi.artomweb.com/scout/cat">https://www.scouts.org.uk/</a>
+        </div>
+        <div class="link">
+            <a href="https://rppi.artomweb.com/scout/cat">take me to scouts.or.uk</a>
+        </div>
+        <div class="link">
+            <a href="https://script.google.com/macros/s/AKfycbzQiCddR4aJ3w6PKmFbzdyujF1pCNLzA8U57RN4hVJgDXfSQK_qoYBmxwj-h9wfD6inAg/exec">this is scouts.or.uk</a>
+        </div>
+        <div class="link">
+            <a href="https://bit.ly/39eiRS4">no this is scouts.or.uk</a>
+        </div>
+        <div class="link">
+            <a href="https://rppi.artomweb.com/scout/cat" class="button blue">definitely scouts.or.uk</a>
+        </div>
+        <div class="link">
+            <a onClick="window.location.href='https://rppi.artomweb.com/scout/cat'" class="fakeLink">this might be a clue</a>
+        </div>
+        <div class="link">
+            <a href="https://rppi.artomweb.com/scout/uhOh">not scouts.or.uk</a>
+        </div>
+
+        <hr style="width: 75%" class="clickAble" onClick="window.location.href='https://www.scouts.org.uk/'" />
+    </div>
+
+    <!-- <script type="text/javascript ">
+        let textarea = document.getElementById("textArea ")
+        const urlParams = new URLSearchParams(window.location.search);
+        const uri = urlParams.get('default');
+        if (uri) {
+            textarea.value = uri
+            changeText(uri)
+        }
+
+        textarea.addEventListener("input ", function(event) {
+            changeText(event.target.value)
+        });
+        textarea.addEventListener("change ", function(event) {
+            changeText(event.target.value)
+        });
+
+        function changeText(val) {
+            document.getElementById("displayText ").innerHTML = val;
+        }
+    </script> -->
+</body>
+
+<style>
+    .link {
+        margin: 30px 0;
+        font-size: 1.1em;
+    }
+    
+    a:visited {
+        color: purple;
+    }
+    
+    .fakeLink {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
+    
+    .blue {
+        background-color: rgb(142, 202, 230);
+    }
+    
+    .other {
+        background-color: #40916c;
+    }
+    
+    .button {
+        border: none;
+        color: white !important;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        /* margin: 4px 2px; */
+        cursor: pointer;
+        border-radius: 10px;
+    }
+</style>
+
+</html>
