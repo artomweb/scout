@@ -33,7 +33,7 @@
 
     let numCats = 18;
 
-    img.src = "http://scout.artomweb.com/cats/" + Math.floor(Math.random() * numCats);
+    img.src = "http://scout.artomweb.com/cats/" + Math.floor(Math.random() * numCats) + ".gif";
 
     img.onError = function(err) {
         console.log(err);
