@@ -33,9 +33,7 @@
 
     let numCats = 18;
 
-    let src;
-
-    src = "http://scout.artomweb.com/cats/" + Math.floor(Math.random() * numCats);
+    img.src = "http://scout.artomweb.com/cats/" + Math.floor(Math.random() * numCats);
 
     img.onError = function(err) {
         console.log(err);
