@@ -13,7 +13,7 @@
     <h1 class="center">This is not scouts.or.uk</h1>
 
     <div class="link">
-        <a href="https://rppi.artomweb.com/scout" class="center">BACK</a>
+        <a href="https://scout.artomweb.com/catPage" class="center">BACK</a>
     </div>
 </body>
 
@@ -31,11 +31,11 @@
     let catImage = document.getElementById("catImage");
     var img = document.createElement("img");
 
+    let numCats = 1;
+
     let src;
 
-    // Math.random() > 0.5 ? (src = "https://cataas.com/cat/gif?") : (src = "http://thecatapi.com/api/images/get?format=src&type=gif");
-
-    src = "https://cataas.com/cat/gif?";
+    src = "http://scout.artomweb.com/cats/" + Math.random() * numCats;
 
     img.src = src + Date.now();
 
