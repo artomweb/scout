@@ -31,13 +31,11 @@
     let catImage = document.getElementById("catImage");
     var img = document.createElement("img");
 
-    let numCats = 1;
+    let numCats = 18;
 
     let src;
 
     src = "http://scout.artomweb.com/cats/" + Math.floor(Math.random() * numCats);
-
-    img.src = src + Date.now();
 
     img.onError = function(err) {
         console.log(err);
