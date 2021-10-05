@@ -10,14 +10,6 @@
 </head>
 
 <body style="overflow: hidden; margin: 5px">
-    <!-- <textarea id="textArea" style="width: 97%; border: 3px solid red; font-size: 20pt; display: block; margin-left: auto; margin-right: auto" rows="5"></textarea>
-    <button type="button" id="updateButton">UPDATE</button>
-    <div style="display: flex; justify-content: center; align-items: center; margin: 3% auto">
-        <div id="displayText" style="font-size: 30pt; text-align: center"></div>
-    </div>
-
-    <hr style="border-top: 3px solid blue" /> -->
-
     <div style="text-align: center" id="link section">
         <h2>Which link takes you to <span onClick="window.location.href='https://www.scouts.org.uk/'" style="cursor: pointer">scouts.or.uk?</span></h2>
 
@@ -33,7 +25,7 @@
         <div class="link">
             <a href="https://bit.ly/3l8ScNp">no this is scouts.or.uk</a>
         </div>
-        <a class="buttonGiphy" rel="nofollow" href="catPage.html"><span class="buttonInner">SCOUTS!</span></a>
+        <a class="buttonGiphy but" rel="nofollow" href="catPage.html"><span class="buttonInner">SCOUTS!</span></a>
         <div class="link">
             <a onClick="window.location.href='catPage.html'" class="fakeLink">this might be a clue</a>
         </div>
@@ -41,29 +33,74 @@
             <a href="uhOh.html">not scouts.or.uk</a>
         </div>
 
-        <!-- <hr style="width: 75%; height: 2px" class="clickAble" /> -->
+        <hr style="width: 75%; height: 3px" class="clickAble" />
+
+        <a class="but buttonPWN" rel="nofollow" href="https://haveibeenpwned.com/"><span class="buttonInner">Have I Been Pwned</span></a>
+
+        <hr style="width: 75%; height: 3px" class="clickAble" />
+
+        <div id="bestPWDQuestions" class="questionCont">
+            <div id="questionOne" class="question">
+                <span class="questionTitle">Select the best password:</span><br />
+                <label class="eachQuestion"><input type="radio" name="questionOne" value="1" />AdditionMusicSalad</label>
+                <label class="eachQuestion"><input type="radio" name="questionOne" value="2" />qwertyuiop</label>
+                <label class="eachQuestion"><input type="radio" name="questionOne" value="3" />sPLzxLSphfX7zfHc</label>
+            </div>
+            <div id="questionTwo" class="question">
+                <span class="questionTitle">Select the best password:</span><br />
+                <label class="eachQuestion"><input type="radio" name="questionTwo" value="1" />c99h9yj7wceceqfv</label>
+                <label class="eachQuestion"><input type="radio" name="questionTwo" value="2" />amazingPassword123</label>
+                <label class="eachQuestion"><input type="radio" name="questionTwo" value="3" />CorrectHorseBatteryStaple</label>
+            </div>
+            <div id="questionThree" class="question">
+                <span class="questionTitle">Select the best password:</span><br />
+                <label class="eachQuestion"><input type="radio" name="questionThree" value="1" />123456</label>
+                <label class="eachQuestion"><input type="radio" name="questionThree" value="2" />q[gx&lt;?>/&%5\r26{</label>
+                <label class="eachQuestion"><input type="radio" name="questionThree" value="3" />dinosaur15</label>
+            </div>
+        </div>
+
+        <a class="but buttonCheck" rel="nofollow" onclick="checkAnswers()"><span class="buttonInner">CHECK</span></a>
+
+        <span id="response" class="response"></span>
     </div>
 
-    <!-- <script type="text/javascript ">
-        let textarea = document.getElementById("textArea ")
-        const urlParams = new URLSearchParams(window.location.search);
-        const uri = urlParams.get('default');
-        if (uri) {
-            textarea.value = uri
-            changeText(uri)
-        }
+    <script type="text/javascript ">
+        function checkAnswers() {
+            let questions = {
+                "questionOne": 3,
+                "questionTwo": 1,
+                "questionThree": 2
+            };
 
-        textarea.addEventListener("input ", function(event) {
-            changeText(event.target.value)
-        });
-        textarea.addEventListener("change ", function(event) {
-            changeText(event.target.value)
-        });
+            correctAnswers = 0
 
-        function changeText(val) {
-            document.getElementById("displayText ").innerHTML = val;
+            for (const [question, answer] of Object.entries(questions)) {
+                const thisQuestion = document.getElementById(question)
+                let inputs = thisQuestion.querySelectorAll('input');
+
+                const selector = `input[name=${question}]:checked`;
+                const userAnswer = (thisQuestion.querySelector(selector) || {}).value;
+
+                console.log(userAnswer)
+
+                if (userAnswer == answer) {
+                    correctAnswers++;
+                } else if (typeof userAnswer == "undefined") {
+                    document.getElementById("response").innerHTML = "Answer all the questions"
+                    document.getElementById("response").style.color = "black";
+                } else {
+                    document.getElementById("response").innerHTML = "Try again!"
+                    document.getElementById("response").style.color = "black";
+                }
+            }
+
+            if (correctAnswers == 3) {
+                document.getElementById("response").innerHTML = "All Correct"
+                document.getElementById("response").style.color = "#33cc33";
+            }
         }
-    </script> -->
+    </script>
 </body>
 
 <style>
@@ -89,8 +126,7 @@
     .other {
         background-color: #40916c;
     }
-    
-    .button {
+    /* .button {
         border: none;
         color: white !important;
         padding: 15px 32px;
@@ -98,16 +134,29 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        /* margin: 4px 2px; */
+        margin: 4px 2px;
         cursor: pointer;
         border-radius: 10px;
-    }
+    } */
     
     .buttonGiphy {
+        background: linear-gradient(103deg, #6157ff, #7067ff, #6157ff) !important;
+    }
+    
+    .buttonPWN {
+        background: rgba(58, 154, 196, 0.5);
+        margin: 2% 0;
+    }
+    
+    .buttonCheck {
+        background: rgba(37, 121, 41, 0.5);
+    }
+    
+    .but {
         padding: 8.5px 16px;
         display: inline-block;
-        background: linear-gradient(103deg, #6157ff, #7067ff, #6157ff);
         text-decoration: none;
+        cursor: pointer;
     }
     
     .buttonInner {
@@ -115,6 +164,30 @@
         font-family: interface, Helvetica Neue, helvetica, sans-serif;
         font-size: 15px;
         font-weight: 600;
+    }
+    
+    .response {
+        font-size: 24px;
+        display: block;
+        margin: 2% 0;
+    }
+    
+    .questionTitle {
+        font-weight: bold;
+    }
+    
+    .questionCont {
+        margin: 2% 0;
+    }
+    
+    .question {
+        display: inline-block;
+        margin: 0 5%;
+    }
+    
+    .eachQuestion {
+        display: block;
+        margin: 4.5% 0;
     }
 </style>
 
