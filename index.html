@@ -75,50 +75,49 @@
         <span id="hashResponse" class="response"></span>
     </div>
 
-    <script type="text/javascript ">
+    <script type="text/javascript">
         function checkAnswers() {
             let questions = {
-                "questionOne": 3,
-                "questionTwo": 1,
-                "questionThree": 2
+                questionOne: 3,
+                questionTwo: 1,
+                questionThree: 2,
             };
 
-            correctAnswers = 0
+            correctAnswers = 0;
 
             for (const [question, answer] of Object.entries(questions)) {
-                const thisQuestion = document.getElementById(question)
-                let inputs = thisQuestion.querySelectorAll('input');
+                const thisQuestion = document.getElementById(question);
+                let inputs = thisQuestion.querySelectorAll("input");
 
                 const selector = `input[name=${question}]:checked`;
                 const userAnswer = (thisQuestion.querySelector(selector) || {}).value;
 
-                console.log(userAnswer)
+                console.log(userAnswer);
 
                 if (userAnswer == answer) {
                     correctAnswers++;
                 } else if (typeof userAnswer == "undefined") {
-                    document.getElementById("response").innerHTML = "Answer all the questions"
-                    document.getElementById("response").style.color = "black";
+                    document.getElementById("response").innerHTML = "Answer all the questions";
+                    document.getElementById("response").style.color = "blac";
                 } else {
-                    document.getElementById("response").innerHTML = "Try again!"
+                    document.getElementById("response").innerHTML = "Try again!";
                     document.getElementById("response").style.color = "black";
                 }
             }
 
             if (correctAnswers == 3) {
-                document.getElementById("response").innerHTML = "All Correct"
+                document.getElementById("response").innerHTML = "All Correct";
                 document.getElementById("response").style.color = "#33cc33";
+                document.getElementById("toHash").style.display = "inline";
                 f();
             }
         }
 
-        let pwdGenOne = document.getElementById("pwdGenOne")
+        let pwdGenOne = document.getElementById("pwdGenOne");
 
         let alphabetLength = 36,
             numberOfTries = 30000,
             startFrom = 0;
-
-
 
         var i = 0,
             howManyTimes = numberOfTries + startFrom;
@@ -126,24 +125,25 @@
         var thing = [];
 
         function f() {
-            pwdGenOne.innerHTML = i.toString(alphabetLength)
+            pwdGenOne.innerHTML = i.toString(alphabetLength);
             i++;
             if (i < howManyTimes) {
                 setTimeout(f, 1);
             }
         }
 
-        let toHash = document.getElementById("toHash")
+        let toHash = document.getElementById("toHash");
 
-        toHash.addEventListener('input', inputHandler);
-        toHash.addEventListener('propertychange', inputHandler);
+        toHash.addEventListener("input", inputHandler);
+        toHash.addEventListener("propertychange", inputHandler);
+
+        toHash.style.display = "none";
 
         function inputHandler(e) {
-            let hashResponse = document.getElementById("hashResponse")
+            let hashResponse = document.getElementById("hashResponse");
 
-            hashResponse.innerHTML = jenkinsOneAtATimeHash(e.target.value)
+            hashResponse.innerHTML = jenkinsOneAtATimeHash(e.target.value);
         }
-
 
         function jenkinsOneAtATimeHash(keyString) {
             let hash = 0;
@@ -155,8 +155,8 @@
             hash += hash << 3;
             hash ^= hash >> 11;
             //4,294,967,295 is FFFFFFFF, the maximum 32 bit unsigned integer value, used here as a mask.
-            return (((hash + (hash << 15)) & 4294967295) >>> 0).toString(16)
-        };
+            return (((hash + (hash << 15)) & 4294967295) >>> 0).toString(16);
+        }
     </script>
 </body>
 
