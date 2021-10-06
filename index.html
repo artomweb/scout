@@ -92,7 +92,7 @@
                 const selector = `input[name=${question}]:checked`;
                 const userAnswer = (thisQuestion.querySelector(selector) || {}).value;
 
-                console.log(userAnswer);
+                // console.log(userAnswer);
 
                 if (userAnswer == answer) {
                     correctAnswers++;
@@ -116,7 +116,7 @@
         let pwdGenOne = document.getElementById("pwdGenOne");
 
         let alphabetLength = 36,
-            numberOfTries = 30000,
+            numberOfTries = Infinity,
             startFrom = 0;
 
         var i = 0,
