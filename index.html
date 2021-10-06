@@ -33,11 +33,11 @@
             <a href="uhOh.html">not scouts.or.uk</a>
         </div>
 
-        <hr style="width: 75%; height: 3px" class="clickAble" />
+        <hr class="clickAble" />
 
         <a class="but buttonPWN" rel="nofollow" href="https://haveibeenpwned.com/"><span class="buttonInner">Have I Been Pwned</span></a>
 
-        <hr style="width: 75%; height: 3px" class="clickAble" />
+        <hr class="clickAble" />
 
         <div id="bestPWDQuestions" class="questionCont">
             <div id="questionOne" class="question">
@@ -63,6 +63,16 @@
         <a class="but buttonCheck" rel="nofollow" onclick="checkAnswers()"><span class="buttonInner">CHECK</span></a>
 
         <span id="response" class="response"></span>
+
+        <div class="pwdGenCont">
+            <div class="pwdGen" id="pwdGenOne"></div>
+        </div>
+
+        <hr class="clickAble" />
+
+        <input type="text" id="toHash" name="toHash" />
+
+        <span id="hashResponse" class="response"></span>
     </div>
 
     <script type="text/javascript ">
@@ -98,8 +108,55 @@
             if (correctAnswers == 3) {
                 document.getElementById("response").innerHTML = "All Correct"
                 document.getElementById("response").style.color = "#33cc33";
+                f();
             }
         }
+
+        let pwdGenOne = document.getElementById("pwdGenOne")
+
+        let alphabetLength = 36,
+            numberOfTries = 30000,
+            startFrom = 0;
+
+
+
+        var i = 0,
+            howManyTimes = numberOfTries + startFrom;
+
+        var thing = [];
+
+        function f() {
+            pwdGenOne.innerHTML = i.toString(alphabetLength)
+            i++;
+            if (i < howManyTimes) {
+                setTimeout(f, 1);
+            }
+        }
+
+        let toHash = document.getElementById("toHash")
+
+        toHash.addEventListener('input', inputHandler);
+        toHash.addEventListener('propertychange', inputHandler);
+
+        function inputHandler(e) {
+            let hashResponse = document.getElementById("hashResponse")
+
+            hashResponse.innerHTML = jenkinsOneAtATimeHash(e.target.value)
+        }
+
+
+        function jenkinsOneAtATimeHash(keyString) {
+            let hash = 0;
+            for (charIndex = 0; charIndex < keyString.length; ++charIndex) {
+                hash += keyString.charCodeAt(charIndex);
+                hash += hash << 10;
+                hash ^= hash >> 6;
+            }
+            hash += hash << 3;
+            hash ^= hash >> 11;
+            //4,294,967,295 is FFFFFFFF, the maximum 32 bit unsigned integer value, used here as a mask.
+            return (((hash + (hash << 15)) & 4294967295) >>> 0).toString(16)
+        };
     </script>
 </body>
 
@@ -125,6 +182,11 @@
     
     .other {
         background-color: #40916c;
+    }
+    
+    .clickAble {
+        width: 75%;
+        border-top: 1px solid black;
     }
     /* .button {
         border: none;
