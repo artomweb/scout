@@ -73,6 +73,10 @@
         <input type="text" id="toHash" name="toHash" />
 
         <span id="hashResponse" class="response"></span>
+
+        <hr class="clickAble" />
+
+        <a class="but biaBut" rel="nofollow" id="bia" href="https://beinternetawesome.withgoogle.com/en_us/interland" style="display: none"><span class="buttonInner">BIA</span></a>
     </div>
 
     <script type="text/javascript">
@@ -109,6 +113,7 @@
                 document.getElementById("response").innerHTML = "All Correct";
                 document.getElementById("response").style.color = "#33cc33";
                 document.getElementById("toHash").style.display = "inline";
+                document.getElementById("bia").style.display = "inline";
                 f();
             }
         }
@@ -216,6 +221,11 @@
     
     .buttonCheck {
         background: rgba(37, 121, 41, 0.5);
+    }
+    
+    .biaBut {
+        margin: 2% 0;
+        background: rgb(223, 70, 151);
     }
     
     .but {
